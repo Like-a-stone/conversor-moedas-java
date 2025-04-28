@@ -33,26 +33,29 @@ A aplicação permite converter valores entre diferentes moedas, utilizando cota
 
 ```
 conversor-moedas-java/
- ├── model/
- │    └── Cotacao.java
- │    └── ConversaoService.java
- ├── view/
- │    └── MainView.fxml
- │    └── MainView.java
- ├── controller/
- │    └── MainController.java
- ├── client/
- │    └── ApiClient.java
- ├── util/
- │    └── JsonUtils.java
- ├── Main.java
+├── LICENSE
+├── pom.xml
+├── README.md
+src
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── github
+│   │           └── lucas
+│   │               ├── client
+│   │               ├── controller
+│   │               ├── model
+│   │               ├── util
+│   │               ├── view
+│   │               └── Main.java
+│   └── resources
 ```
 
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos:
 - JDK 17 ou superior instalado
-- IDE com suporte a JavaFX (ex: IntelliJ IDEA)
+- IDE com suporte a JavaFX
 - Conta criada na **Extended Rate** para gerar sua **API Key**
 
 ### Rodando o projeto:
@@ -63,8 +66,7 @@ conversor-moedas-java/
 2. Abra o projeto na sua IDE.
 3. Configure o JavaFX (caso necessário).
 4. Insira sua **API Key** no arquivo de configuração/API Client.
-5. Rode a aplicação (`Main.java`).
-
+5. Rode a aplicação (`Adicao Futura`).
 
 ## 📄 Licença
 
