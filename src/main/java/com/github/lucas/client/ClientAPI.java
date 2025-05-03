@@ -1,4 +1,9 @@
 package com.github.lucas.client;
 
-public class stub {
+import io.github.cdimascio.dotenv.Dotenv;
+
+public class ClientAPI {
+    private final Dotenv dotenv = Dotenv.configure()
+            .load();
+
 }
