@@ -1,6 +1,5 @@
-// src/main/java/com/github/lucas/dto/ExchangeRateResponse.java
 package com.github.lucas.dto;
-
+// Possui todas os dados retonado pela API
 public record ExchangeRateResponse(
         String result,
         String documentation,
@@ -11,6 +10,5 @@ public record ExchangeRateResponse(
         String time_next_update_utc,
         String base_code,
         String target_code,
-        double conversion_rate,
-        double conversion_result
+        double conversion_rate
 ) {}
