@@ -1,5 +1,8 @@
 package com.github.lucas.client;
 
+import com.github.lucas.dto.ExchangeRateResponse;
+import com.github.lucas.util.GsonSingleton;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -12,7 +15,7 @@ import static com.github.lucas.config.EnvConfig.getApiKey;
 public class ClientAPI {
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public void pairConversion (String base, String target, BigDecimal amount){
+    public ExchangeRateResponse pairConversion (String base, String target, BigDecimal amount){
         String urlStr = settingUrl (base, target, amount);
 
         try {
@@ -22,10 +25,11 @@ public class ClientAPI {
 
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            return GsonSingleton.getInstance().fromJson(response.body(), ExchangeRateResponse.class);
 
         }catch (IOException | InterruptedException e) {
             System.out.println("Erro ao consultar o endereço: "+ e.getMessage());
+            return null;
         }
     }
 
