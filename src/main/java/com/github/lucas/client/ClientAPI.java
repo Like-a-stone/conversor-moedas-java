@@ -15,8 +15,8 @@ import static com.github.lucas.config.EnvConfig.getApiKey;
 public class ClientAPI {
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public ExchangeRateResponse pairConversion (String base, String target, BigDecimal amount){
-        String urlStr = settingUrl (base, target, amount);
+    public ExchangeRateResponse pairConversion (String base, String target){
+        String urlStr = settingUrl (base, target);
 
         try {
             HttpRequest request = HttpRequest.newBuilder()
@@ -33,9 +33,9 @@ public class ClientAPI {
         }
     }
 
-    private String settingUrl (String base, String target, BigDecimal amount){
+    private String settingUrl (String base, String target){
         String API_KEY = getApiKey();
-        return "https://v6.exchangerate-api.com/v6/%s/pair/%s/%s/%s"
-                .formatted(API_KEY, base , target, amount);
+        return "https://v6.exchangerate-api.com/v6/%s/pair/%s/%s"
+                .formatted(API_KEY, base , target);
     }
 }
