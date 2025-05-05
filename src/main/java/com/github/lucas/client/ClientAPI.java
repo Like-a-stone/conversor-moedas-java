@@ -1,5 +1,8 @@
 package com.github.lucas.client;
 
+import com.github.lucas.dto.ExchangeRateResponse;
+import com.github.lucas.util.GsonSingleton;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -12,8 +15,8 @@ import static com.github.lucas.config.EnvConfig.getApiKey;
 public class ClientAPI {
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public void pairConversion (String base, String target, BigDecimal amount){
-        String urlStr = settingUrl (base, target, amount);
+    public ExchangeRateResponse pairConversion (String base, String target){
+        String urlStr = settingUrl (base, target);
 
         try {
             HttpRequest request = HttpRequest.newBuilder()
@@ -22,16 +25,17 @@ public class ClientAPI {
 
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            return GsonSingleton.getInstance().fromJson(response.body(), ExchangeRateResponse.class);
 
         }catch (IOException | InterruptedException e) {
             System.out.println("Erro ao consultar o endereço: "+ e.getMessage());
+            return null;
         }
     }
 
-    private String settingUrl (String base, String target, BigDecimal amount){
+    private String settingUrl (String base, String target){
         String API_KEY = getApiKey();
-        return "https://v6.exchangerate-api.com/v6/%s/pair/%s/%s/%s"
-                .formatted(API_KEY, base , target, amount);
+        return "https://v6.exchangerate-api.com/v6/%s/pair/%s/%s"
+                .formatted(API_KEY, base , target);
     }
 }
