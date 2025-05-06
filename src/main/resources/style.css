@@ -1,0 +1,39 @@
+#headerBox {
+    -fx-background-color: #0A0B0A;
+    -fx-padding: 20;
+    -fx-alignment: center-left;
+}
+.currency-box {
+    -fx-padding: 8;
+    -fx-border-color: #d1d5db;
+    -fx-background-radius: 6 0 0 6;
+    -fx-border-radius: 6 0 0 6;
+}
+
+.currency-box.yellow {
+    -fx-background-color: #facc15;
+}
+
+.currency-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.value-label {
+    -fx-background-color: #e5e7eb;
+    -fx-padding: 8 24;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 0 6 6 0;
+    -fx-background-radius: 0 6 6 0;
+    -fx-font-size: 18px;
+    -fx-font-weight: 300;
+    -fx-text-fill: #374151;
+}
+
+.swap-button {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 6;
+    -fx-padding: 6 10;
+}
+
