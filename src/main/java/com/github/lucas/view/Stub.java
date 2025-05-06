@@ -1,4 +1,4 @@
 package com.github.lucas.view;
 
-public class stub {
+public class Stub {
 }
