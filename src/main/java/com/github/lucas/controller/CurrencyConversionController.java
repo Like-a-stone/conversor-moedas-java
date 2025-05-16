@@ -24,12 +24,11 @@ public class CurrencyConversionController {
     @FXML
     private TextField toValueField;
 
-    @FXML
-    private Button swapButton;
+//    TODO
+//    @FXML
+//    private Button swapButton;
 
     private final CurrencyConversion currencyConversion = new CurrencyConversion();
-
-    private final Map<String, Double> exchangeRates = new HashMap<>();
 
     @FXML
     public void initialize() {
