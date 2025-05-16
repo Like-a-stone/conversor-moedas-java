@@ -46,7 +46,6 @@ src
 │   │               ├── controller
 │   │               ├── model
 │   │               ├── util
-│   │               ├── view
 │   │               └── Main.java
 │   └── resources
 ```
@@ -55,20 +54,36 @@ src
 
 ### Pré-requisitos:
 - JDK 17 ou superior instalado
-- IDE com suporte a JavaFX
+- Maven instalado e configurado (`mvn -v` para verificar)
+- IDE com suporte a JavaFX (recomendado: IntelliJ IDEA ou Eclipse)
 - Conta criada na **Extended Rate** para gerar sua **API Key**
 
-### Rodando o projeto:
+### Passos para execução:
+
 1. Clone o repositório:
    ```bash
    git clone https://github.com/Like-a-stone/conversor-moedas-java.git
+   cd conversor-moedas-java
+
+2. Adicione sua **API Key** em um arquivo `.env` na raiz do projeto:
+
    ```
-2. Abra o projeto na sua IDE.
-3. Configure o JavaFX (caso necessário).
-4. Insira sua **API Key** no arquivo de configuração/API Client.
-5. Rode a aplicação (`Adicao Futura`).
+   API_KEY=sua_chave_aqui
+   ```
+
+3. Execute o projeto com Maven:
+
+   ```bash
+   mvn clean javafx:run
+   ```
+
+Isso iniciará a aplicação JavaFX com a interface gráfica.
+
+---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença **MIT**.  
+Este projeto está licenciado sob a licença **MIT**.
 Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+
