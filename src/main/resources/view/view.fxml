@@ -9,7 +9,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
-
 <?import javafx.scene.layout.VBox?>
 <VBox prefWidth="1200.0" prefHeight="300.0" spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.github.lucas.controller.CurrencyConversionController">
