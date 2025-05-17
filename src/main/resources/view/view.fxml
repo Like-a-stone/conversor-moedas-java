@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 <VBox prefWidth="1200.0" prefHeight="300.0" spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.github.lucas.controller.CurrencyConversionController">
    <stylesheets>
@@ -24,8 +25,10 @@
          <ImageView fx:id="logoImage"
                     fitHeight="80.0"
                     preserveRatio="true"
-                    pickOnBounds="true"
-                    style="-fx-margin: 0 0 0 20;">
+                    pickOnBounds="true">
+            <HBox.margin>
+                    <Insets left = "60"/>
+            </HBox.margin>
             <image>
                <Image url="@../images/logo.png" />
             </image>
@@ -37,7 +40,7 @@
          <!-- Moeda de origem -->
          <HBox fx:id="fromCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
             <StackPane>
-               <Circle fx:id="fromIcon" radius="12" style="-fx-fill: #15803d;" />
+               <Circle fx:id="fromIcon" radius="12" styleClass="from-icon"/>
             </StackPane>
             <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
          </HBox>
@@ -51,7 +54,7 @@
          <!-- Moeda de destino -->
          <HBox fx:id="toCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
             <StackPane>
-               <Circle fx:id="toIcon" radius="12" style="-fx-fill: #2563eb;" />
+               <Circle fx:id="toIcon" radius="12" styleClass="to-icon" />
             </StackPane>
             <ComboBox fx:id="toCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
          </HBox>
