@@ -3,19 +3,44 @@
     -fx-padding: 20;
     -fx-alignment: center-left;
 }
+
 .currency-box {
-    -fx-padding: 8;
+    -fx-padding: 12; /* aumento do padding */
     -fx-border-color: #d1d5db;
-    -fx-background-radius: 6 0 0 6;
-    -fx-border-radius: 6 0 0 6;
+    -fx-background-radius: 8 0 0 8;
+    -fx-border-radius: 8 0 0 8;
+    -fx-pref-height: 50px; /* altura dos boxes */
 }
 
 .currency-box.yellow {
     -fx-background-color: #facc15;
 }
 
+.currency-combo {
+    -fx-font-size: 18px;
+    -fx-pref-width: 180px;
+    -fx-pref-height: 40px;
+}
+
+.value-field {
+    -fx-font-size: 18px;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 40px;
+    -fx-padding: 8 12;
+}
+
+.swap-button {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 6;
+    -fx-font-size: 20px;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 40px;
+    -fx-padding: 6 10;
+}
+
 .currency-label {
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
 }
 
@@ -25,15 +50,7 @@
     -fx-border-color: #d1d5db;
     -fx-border-radius: 0 6 6 0;
     -fx-background-radius: 0 6 6 0;
-    -fx-font-size: 18px;
+    -fx-font-size: 20px;
     -fx-font-weight: 300;
     -fx-text-fill: #374151;
 }
-
-.swap-button {
-    -fx-background-color: white;
-    -fx-border-color: black;
-    -fx-border-radius: 6;
-    -fx-padding: 6 10;
-}
-
