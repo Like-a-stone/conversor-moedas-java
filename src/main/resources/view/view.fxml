@@ -11,6 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
+
 <VBox prefWidth="1200.0" prefHeight="300.0" spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.github.lucas.controller.CurrencyConversionController">
    <stylesheets>
@@ -36,31 +37,38 @@
       </HBox>
 
       <!-- CONVERSOR -->
-      <HBox spacing="16" alignment="CENTER" prefWidth="1200.0">
-         <!-- Moeda de origem -->
-         <HBox fx:id="fromCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
-            <StackPane>
-               <Circle fx:id="fromIcon" radius="12" styleClass="from-icon"/>
-            </StackPane>
-            <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo"/>
-         </HBox>
+      <StackPane prefWidth="1200" prefHeight="700" alignment="CENTER">
+         <VBox fx:id="conversionCard" styleClass="conversion-card" alignment="CENTER">
+            <!-- CONVERSOR CARD -->
+            <VBox spacing="16" alignment="BOTTOM_RIGHT">
+               <HBox spacing="16" alignment="CENTER">
+                  <!-- Moeda de origem -->
+                  <HBox fx:id="fromCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
+                     <StackPane>
+                        <Circle fx:id="fromIcon" radius="12" styleClass="circle-icon"/>
+                     </StackPane>
+                     <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo"/>
+                  </HBox>
 
-         <!-- Valor convertido origem -->
-         <TextField fx:id="fromValueField" text="1" styleClass="value-field"/>
+                  <!-- Valor convertido origem -->
+                  <TextField fx:id="fromValueField" text="1" styleClass="value-field"/>
 
-         <!-- Botão de troca -->
-         <Button fx:id="swapButton" text="⇄" styleClass="swap-button"/>
+                  <!-- Botão de troca -->
+                  <Button fx:id="swapButton" text="⇄" styleClass="swap-button"/>
 
-         <!-- Moeda de destino -->
-         <HBox fx:id="toCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
-            <StackPane>
-               <Circle fx:id="toIcon" radius="12" styleClass="to-icon" />
-            </StackPane>
-            <ComboBox fx:id="toCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
-         </HBox>
+                  <!-- Moeda de destino -->
+                  <HBox fx:id="toCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
+                     <StackPane>
+                        <Circle fx:id="toIcon" radius="12" styleClass="circle-icon" />
+                     </StackPane>
+                     <ComboBox fx:id="toCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
+                  </HBox>
 
-         <!-- Valor convertido destino -->
-         <TextField fx:id="toValueField" styleClass="value-field"/>
-      </HBox>
+                  <!-- Valor convertido destino -->
+                  <TextField fx:id="toValueField" styleClass="value-field"/>
+               </HBox>
+            </VBox>
+         </VBox>
+      </StackPane>
    </children>
 </VBox>
