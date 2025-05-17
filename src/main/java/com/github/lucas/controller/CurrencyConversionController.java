@@ -8,7 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
-
+import javafx.animation.RotateTransition;
+import javafx.util.Duration;
 import java.math.BigDecimal;
 
 public class CurrencyConversionController {
@@ -53,7 +54,7 @@ public class CurrencyConversionController {
 
         fromCurrencyCombo.getSelectionModel().select(currentTo);
         toCurrencyCombo.getSelectionModel().select(currentFrom);
-
+        animateSwapButton();
         convertCurrency();
     }
 
@@ -77,5 +78,11 @@ public class CurrencyConversionController {
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> field.getStyleClass().remove("converted-highlight"));
         pause.play();
+    }
+
+    private void animateSwapButton(){
+        RotateTransition rt = new RotateTransition(Duration.seconds(0.4), swapButton);
+        rt.setByAngle(180);
+        rt.play();
     }
 }

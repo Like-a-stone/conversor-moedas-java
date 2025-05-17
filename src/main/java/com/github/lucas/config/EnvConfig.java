@@ -10,4 +10,3 @@ public class EnvConfig {
         return dotenv.get("API_KEY");
     }
 }
-
