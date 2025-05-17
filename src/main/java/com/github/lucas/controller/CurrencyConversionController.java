@@ -7,8 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CurrencyConversionController {
 
@@ -24,9 +22,8 @@ public class CurrencyConversionController {
     @FXML
     private TextField toValueField;
 
-//    TODO
-//    @FXML
-//    private Button swapButton;
+    @FXML
+    private Button swapButton;
 
     private final CurrencyConversion currencyConversion = new CurrencyConversion();
 
@@ -43,8 +40,18 @@ public class CurrencyConversionController {
         // Listener para conversão automática ao mudar moeda ou valor
         fromCurrencyCombo.setOnAction(event -> convertCurrency());
         toCurrencyCombo.setOnAction(event -> convertCurrency());
+        swapButton.setOnAction(event -> swapCurrencies());
         fromValueField.textProperty().addListener((obs, oldValue, newValue) -> convertCurrency());
 
+    }
+    private void swapCurrencies() {
+        String currentFrom = fromCurrencyCombo.getValue();
+        String currentTo = toCurrencyCombo.getValue();
+
+        fromCurrencyCombo.getSelectionModel().select(currentTo);
+        toCurrencyCombo.getSelectionModel().select(currentFrom);
+
+        convertCurrency();
     }
 
     private void convertCurrency() {
@@ -54,7 +61,6 @@ public class CurrencyConversionController {
             BigDecimal amount = new BigDecimal(fromValueField.getText().trim());
             CurrencyConversionResponse result =currencyConversion.convertCurrency(fromCurrency, toCurrency, amount);
 
-            System.out.println("Converted Amount: " + result.toString());
             toValueField.setText(String.format("%.2f", result.conversion_result()));
         } catch (NumberFormatException e) {
             toValueField.setText("0.00");

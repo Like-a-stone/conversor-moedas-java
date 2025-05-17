@@ -46,7 +46,7 @@
          <TextField fx:id="fromValueField" text="5.685" styleClass="value-field"/>
 
          <!-- Botão de troca -->
-         <Button fx:id="swapButton" text="🔁" styleClass="swap-button"/>
+         <Button fx:id="swapButton" text="⇄" styleClass="swap-button"/>
 
          <!-- Moeda de destino -->
          <HBox fx:id="toCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
