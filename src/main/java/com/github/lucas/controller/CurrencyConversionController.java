@@ -6,6 +6,7 @@ import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import javafx.animation.RotateTransition;
@@ -27,6 +28,12 @@ public class CurrencyConversionController {
     private TextField toValueField;
 
     @FXML
+    private Label fromIconLabel;
+
+    @FXML
+    private Label toIconLabel;
+
+    @FXML
     private Button swapButton;
 
     private final CurrencyConversion currencyConversion = new CurrencyConversion();
@@ -43,10 +50,11 @@ public class CurrencyConversionController {
         fromCurrencyCombo.setValue(CurrencyEnum.USD);
         toCurrencyCombo.setValue(CurrencyEnum.BRL);
         convertCurrency();
+        updateCurrencyIcons();
 
         // Listener para conversão automática ao mudar moeda ou valor
-        fromCurrencyCombo.setOnAction(event -> convertCurrency());
-        toCurrencyCombo.setOnAction(event -> convertCurrency());
+        fromCurrencyCombo.setOnAction(event -> {convertCurrency(); updateCurrencyIcons();});
+        toCurrencyCombo.setOnAction(event -> {convertCurrency(); updateCurrencyIcons();});
         swapButton.setOnAction(event -> swapCurrencies());
         fromValueField.textProperty().addListener((obs, oldValue, newValue) -> convertCurrency());
 
@@ -81,6 +89,14 @@ public class CurrencyConversionController {
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> field.getStyleClass().remove("converted-highlight"));
         pause.play();
+    }
+
+    private void updateCurrencyIcons() {
+        CurrencyEnum fromCurrency = fromCurrencyCombo.getValue();
+        CurrencyEnum toCurrency = toCurrencyCombo.getValue();
+
+        fromIconLabel.setText(fromCurrency != null ? fromCurrency.getSigla() : "");
+        toIconLabel.setText(toCurrency != null ? toCurrency.getSigla() : "");
     }
 
     private void animateSwapButton(){

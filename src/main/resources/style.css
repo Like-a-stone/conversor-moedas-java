@@ -48,6 +48,18 @@
     -fx-padding: 8 12;
 }
 
+.icon-circle {
+    -fx-alignment: center;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+}
+
+.icon-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
 .circle-icon {
     -fx-fill: #000000;
 }

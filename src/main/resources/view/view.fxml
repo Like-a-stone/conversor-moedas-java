@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.control.Label?>
 <VBox prefWidth="1200.0" prefHeight="300.0" spacing="30.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.github.lucas.controller.CurrencyConversionController">
    <stylesheets>
@@ -44,8 +45,9 @@
                <HBox spacing="16" alignment="CENTER">
                   <!-- Moeda de origem -->
                   <HBox fx:id="fromCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
-                     <StackPane>
+                     <StackPane fx:id="fromIconStack" styleClass="icon-circle">
                         <Circle fx:id="fromIcon" radius="12" styleClass="circle-icon"/>
+                        <Label fx:id="fromIconLabel" styleClass="icon-label"/>
                      </StackPane>
                      <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo"/>
                   </HBox>
@@ -58,8 +60,9 @@
 
                   <!-- Moeda de destino -->
                   <HBox fx:id="toCurrencyBox" styleClass="currency-box yellow" spacing="8" alignment="CENTER_LEFT">
-                     <StackPane>
+                     <StackPane fx:id="toIconStack" styleClass="icon-circle">
                         <Circle fx:id="toIcon" radius="12" styleClass="circle-icon" />
+                        <Label fx:id="toIconLabel" styleClass="icon-label"/>
                      </StackPane>
                      <ComboBox fx:id="toCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
                   </HBox>
