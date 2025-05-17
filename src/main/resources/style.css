@@ -5,11 +5,11 @@
 }
 
 .currency-box {
-    -fx-padding: 12; /* aumento do padding */
+    -fx-padding: 12; /* aumenta do padding (Todo: reduzir apos aumento dos componentes)*/
     -fx-border-color: #d1d5db;
     -fx-background-radius: 8 0 0 8;
     -fx-border-radius: 8 0 0 8;
-    -fx-pref-height: 50px; /* altura dos boxes */
+    -fx-pref-height: 50px;
 }
 
 .currency-box.yellow {
@@ -53,4 +53,13 @@
     -fx-font-size: 20px;
     -fx-font-weight: 300;
     -fx-text-fill: #374151;
+}
+
+.converted-highlight {
+    -fx-background-color: #bbf7d0;
+    -fx-border-color: #22c55e;
+    -fx-border-width: 2;;
+    -fx--border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, #22c55e, 10, 0.5, 0, 0)
 }

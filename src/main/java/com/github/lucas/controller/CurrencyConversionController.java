@@ -2,10 +2,13 @@ package com.github.lucas.controller;
 
 import com.github.lucas.dto.CurrencyConversionResponse;
 import com.github.lucas.model.CurrencyConversion;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
+
 import java.math.BigDecimal;
 
 public class CurrencyConversionController {
@@ -62,8 +65,17 @@ public class CurrencyConversionController {
             CurrencyConversionResponse result =currencyConversion.convertCurrency(fromCurrency, toCurrency, amount);
 
             toValueField.setText(String.format("%.2f", result.conversion_result()));
+            highlightConversion(toValueField);
         } catch (NumberFormatException e) {
             toValueField.setText("0.00");
         }
+    }
+
+    private void highlightConversion (TextField field){
+        field.getStyleClass().add("converted-highlight");
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+        pause.setOnFinished(e -> field.getStyleClass().remove("converted-highlight"));
+        pause.play();
     }
 }
