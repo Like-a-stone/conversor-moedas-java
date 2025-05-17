@@ -1,6 +1,7 @@
 package com.github.lucas.client;
 
 import com.github.lucas.dto.ExchangeRateResponse;
+import com.github.lucas.model.CurrencyEnum;
 import com.github.lucas.util.GsonSingleton;
 
 import java.io.IOException;
@@ -15,8 +16,8 @@ import static com.github.lucas.config.EnvConfig.getApiKey;
 public class ClientAPI {
     private final HttpClient client = HttpClient.newHttpClient();
 
-    public ExchangeRateResponse pairConversion (String base, String target){
-        String urlStr = settingUrl (base, target);
+    public ExchangeRateResponse pairConversion (CurrencyEnum base, CurrencyEnum target){
+        String urlStr = settingUrl (base.name(), target.name());
 
         try {
             HttpRequest request = HttpRequest.newBuilder()

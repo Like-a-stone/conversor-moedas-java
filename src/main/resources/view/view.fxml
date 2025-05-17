@@ -42,11 +42,11 @@
             <StackPane>
                <Circle fx:id="fromIcon" radius="12" styleClass="from-icon"/>
             </StackPane>
-            <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo" promptText="Selecione a moeda"/>
+            <ComboBox fx:id="fromCurrencyCombo" styleClass="currency-combo"/>
          </HBox>
 
          <!-- Valor convertido origem -->
-         <TextField fx:id="fromValueField" text="5.685" styleClass="value-field"/>
+         <TextField fx:id="fromValueField" text="1" styleClass="value-field"/>
 
          <!-- Botão de troca -->
          <Button fx:id="swapButton" text="⇄" styleClass="swap-button"/>
@@ -60,7 +60,7 @@
          </HBox>
 
          <!-- Valor convertido destino -->
-         <TextField fx:id="toValueField" text="1.10" styleClass="value-field"/>
+         <TextField fx:id="toValueField" styleClass="value-field"/>
       </HBox>
    </children>
 </VBox>

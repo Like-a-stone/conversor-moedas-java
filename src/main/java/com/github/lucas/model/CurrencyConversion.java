@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class CurrencyConversion {
     private ClientAPI clientAPI = new ClientAPI();
 
-    public CurrencyConversionResponse convertCurrency(String base, String target, BigDecimal amount) {
+    public CurrencyConversionResponse convertCurrency(CurrencyEnum base, CurrencyEnum target, BigDecimal amount) {
         ExchangeRateResponse exchangeRateResponse = callAPI(base, target);
 
         BigDecimal result = amount.multiply(BigDecimal.valueOf(exchangeRateResponse.conversion_rate()));
@@ -21,7 +21,7 @@ public class CurrencyConversion {
         );
     }
 
-    private ExchangeRateResponse callAPI(String base, String target) {
+    private ExchangeRateResponse callAPI(CurrencyEnum base, CurrencyEnum target) {
         return clientAPI.pairConversion(base, target);
     }
 }

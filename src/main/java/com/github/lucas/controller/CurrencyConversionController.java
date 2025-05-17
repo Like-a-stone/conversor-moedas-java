@@ -9,16 +9,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 import javafx.animation.RotateTransition;
-import javafx.util.Duration;
 import java.math.BigDecimal;
+import com.github.lucas.model.CurrencyEnum;
 
 public class CurrencyConversionController {
 
     @FXML
-    private ComboBox<String> fromCurrencyCombo;
+    private ComboBox<CurrencyEnum> fromCurrencyCombo;
 
     @FXML
-    private ComboBox<String> toCurrencyCombo;
+    private ComboBox<CurrencyEnum> toCurrencyCombo;
 
     @FXML
     private TextField fromValueField;
@@ -34,12 +34,15 @@ public class CurrencyConversionController {
     @FXML
     public void initialize() {
         // Inicializar ComboBox com moedas
-        fromCurrencyCombo.getItems().addAll("BRL", "USD", "EUR", "GBP", "JPY");
-        toCurrencyCombo.getItems().addAll("BRL", "USD", "EUR", "GBP", "JPY");
+        for (CurrencyEnum currency : CurrencyEnum.values()){
+            fromCurrencyCombo.getItems().add(currency);
+            toCurrencyCombo.getItems().add(currency);
+        }
 
-        // Seleções padrão
-        fromCurrencyCombo.setValue("BRL");
-        toCurrencyCombo.setValue("USD");
+        // Seleções padrão e conversão inicial
+        fromCurrencyCombo.setValue(CurrencyEnum.USD);
+        toCurrencyCombo.setValue(CurrencyEnum.BRL);
+        convertCurrency();
 
         // Listener para conversão automática ao mudar moeda ou valor
         fromCurrencyCombo.setOnAction(event -> convertCurrency());
@@ -49,8 +52,8 @@ public class CurrencyConversionController {
 
     }
     private void swapCurrencies() {
-        String currentFrom = fromCurrencyCombo.getValue();
-        String currentTo = toCurrencyCombo.getValue();
+        CurrencyEnum currentFrom = fromCurrencyCombo.getValue();
+        CurrencyEnum currentTo = toCurrencyCombo.getValue();
 
         fromCurrencyCombo.getSelectionModel().select(currentTo);
         toCurrencyCombo.getSelectionModel().select(currentFrom);
@@ -60,10 +63,10 @@ public class CurrencyConversionController {
 
     private void convertCurrency() {
         try {
-            String fromCurrency = fromCurrencyCombo.getValue();
-            String toCurrency = toCurrencyCombo.getValue();
+            CurrencyEnum fromCurrency = fromCurrencyCombo.getValue();
+            CurrencyEnum toCurrency = toCurrencyCombo.getValue();
             BigDecimal amount = new BigDecimal(fromValueField.getText().trim());
-            CurrencyConversionResponse result =currencyConversion.convertCurrency(fromCurrency, toCurrency, amount);
+            CurrencyConversionResponse result = currencyConversion.convertCurrency(fromCurrency, toCurrency, amount);
 
             toValueField.setText(String.format("%.2f", result.conversion_result()));
             highlightConversion(toValueField);
